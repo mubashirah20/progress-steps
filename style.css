@@ -1,6 +1,11 @@
 /* imported from fonts.google.com with selected fonts */
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
+/* custom properties */
+:root{
+    --line-border-fill: #3498db;
+    --line-border-empty: #e0e0e0;
+}
 /* applies to everything, if add border or anything doesnt affect others */
 * {
     box-sizing: border-box;
@@ -36,7 +41,7 @@ body{
 .progress-container::before{
     /* when using before or after, set it to content with an empty string */
     content: '';
-    background-color: #e0e0e0;
+    background-color: var(--line-border-empty);
     position: absolute ;
     top: 50% ;
     left: 0;
@@ -48,7 +53,7 @@ body{
 
 /* for the line between one number and another */
 .progress{
-    background-color: #3498db;
+    background-color: var(--line-border-fill);
     position: absolute ;
     top: 50% ;
     left: 0;
@@ -70,5 +75,37 @@ body{
     display:flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid #e0e0e0;
+    border: 3px solid var(--line-border-empty);
+    transition: .4s ease;
+}
+
+.circle.active{
+    border-color: var(--line-border-fill);
+}
+
+.btn{
+    background-color: var(--line-border-fill);
+    color: #fff ;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer ;
+    font-family: inherit;
+    /* padding 8px top and bottom 30px left and right */
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+.btn:active{
+    transform: scale(0.98);
+}
+
+.btn:focus{
+    outline: 0;
+}
+
+/* if its disabled can't click it */
+.btn:disabled{
+    background-color: var(--line-border-empty);
+    cursor: not-allowed ;
 }
