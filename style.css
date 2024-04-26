@@ -1,0 +1,74 @@
+/* imported from fonts.google.com with selected fonts */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/* applies to everything, if add border or anything doesnt affect others */
+* {
+    box-sizing: border-box;
+}
+body{
+    background-color: #f6f7fb;
+    font-family: 'Muli', sans-serif;
+    /* display flex to  centre everything and puts it in a row */
+    display: flex; 
+    /* changes direction from row too vertical */
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    /* centers content both ways */
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container{
+    text-align: center;
+}
+
+.progress-container{
+    display: flex;
+    justify-content: space-between;
+    position:relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+}
+/* line behind blue line */
+.progress-container::before{
+    /* when using before or after, set it to content with an empty string */
+    content: '';
+    background-color: #e0e0e0;
+    position: absolute ;
+    top: 50% ;
+    left: 0;
+    transform: translateY(-50%) ;
+    height: 4px;
+    width: 100% ;
+    z-index: -1 ;
+}
+
+/* for the line between one number and another */
+.progress{
+    background-color: #3498db;
+    position: absolute ;
+    top: 50% ;
+    left: 0;
+    transform: translateY(-50%) ;
+    height: 4px;
+    /* setting width to 50% or 0% will colour in the line */
+    width: 0% ;
+    z-index: -1 ;
+    transition: 0.4s ease;
+}
+
+.circle{
+    background-color: #fff;
+    color: #999;
+    border-radius: 50%;
+    height:30px ;
+    width: 30px ;
+    /* display flex centers the numbers in the middle */
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #e0e0e0;
+}
